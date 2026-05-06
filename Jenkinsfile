@@ -1,21 +1,17 @@
 pipeline {
     agent any
 
-    environment {
-        COMPOSE_FILE = 'docker-compose.yml'
-    }
-
     stages {
         
-        stage('Build Containers') {
+        stage('Clean Old Containers') {
             steps {
-                sh 'docker-compose build'
+                sh 'docker-compose down -v || true'
             }
         }
 
-        stage('Stop Old Containers') {
+        stage('Build Containers') {
             steps {
-                sh 'docker-compose down'
+                sh 'docker-compose build'
             }
         }
 
