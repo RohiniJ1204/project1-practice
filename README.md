@@ -1,4 +1,4 @@
-# 🚀 CI/CD Pipeline with Jenkins, Docker, and Nginx
+# 🚀 Automated CI/CD Pipeline for Containerized Application using Jenkins, Docker & Nginx
 
 ## 📖 Project Overview
 This project implements an end-to-end CI/CD pipeline using Jenkins, Docker, and Nginx to automate the build, test, push, and deployment of a containerized multi-service application. The system includes a frontend, backend, and Nginx reverse proxy, all managed using Docker Compose.
