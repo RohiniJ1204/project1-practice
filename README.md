@@ -1,3 +1,8 @@
+![Jenkins](https://img.shields.io/badge/Jenkins-CI%2FCD-blue?logo=jenkins)
+![Docker](https://img.shields.io/badge/Docker-Containerization-blue?logo=docker)
+![Nginx](https://img.shields.io/badge/Nginx-Reverse_Proxy-green?logo=nginx)
+![GitHub](https://img.shields.io/badge/GitHub-Version_Control-black?logo=github)
+
 # 🚀 Automated CI/CD Pipeline for Containerized Application using Jenkins, Docker & Nginx
 
 ## 📖 Project Overview
@@ -15,15 +20,14 @@ All services run inside isolated Docker containers to ensure consistency and sca
 
 ### System Flow
 
-```bash
-
-  User → Nginx → Frontend / Backend  
-      ↓  
-  Docker Compose (Container Orchestration)  
-      ↓  
-  Jenkins CI/CD Pipeline (Automation)  
-      ↓  
-  Docker Hub (Image Registry) 
+```text
+User → Nginx → Frontend / Backend  
+             ↓  
+     Docker Compose  
+             ↓  
+  Jenkins CI/CD Pipeline  
+             ↓  
+         Docker Hub 
 ```
 ---
 
@@ -36,6 +40,33 @@ All services run inside isolated Docker containers to ensure consistency and sca
 - GitHub - Version control and repository hosting
 - DockerHub - Container image registry
 - Linux - Deployment environment
+
+---
+
+## 📁 Project Structure
+
+```text
+.
+├── Jenkinsfile
+├── docker-compose.yml
+├── frontend
+│   ├── Dockerfile
+│   └── index.html
+├── backend
+│   ├── Dockerfile
+│   ├── package-lock.json
+│   ├── package.json
+│   └── server.js
+├── nginx
+│   └── nginx.conf
+└── screenshots
+    ├── application-ui.png
+    ├── docker-containers.png
+    ├── docker-hub.png
+    ├── jenkins-console-output.png
+    └── jenkins-pipeline-stage-view.png
+├── README.md
+```
 
 ---
 
@@ -64,10 +95,14 @@ Build → Test → Push → Deploy
 ---
 
 ## 🚀 How to Run Locally
+```bash
+git clone
+https://github.com/RohiniJ1204/jenkins-docker-cicd-pipeline.git
 
-- git clone https://github.com/RohiniJ1204/jenkins-docker-cicd-pipeline.git
-- cd jenkins-docker-cicd-pipeline
-- docker-compose up -d
+cd jenkins-docker-cicd-pipeline
+
+docker-compose up -d
+```
 
 ---
 
@@ -122,6 +157,12 @@ Build → Test → Push → Deploy
 **Rohini Javvaji**
 - Aspiring DevOps Engineer
 - GitHub: https://github.com/RohiniJ1204
+
+---
+
+⭐ This project demonstrates practical implementation of CI/CD automation and containerized deployments using modern DevOps tools.
+
+---
 
 
 
