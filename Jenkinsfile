@@ -2,38 +2,62 @@ pipeline {
     agent any
 
     stages {
-        
-        stage('Clean Old Containers') {
+
+        stage('Cleanup') {
             steps {
-                sh 'docker-compose down -v || true'
+                sh 'docker compose down || true'
             }
         }
 
-        stage('Build Containers') {
+        stage('Build') {
             steps {
-                sh 'docker-compose build'
+                sh 'docker compose build'
             }
         }
 
-        stage('Start Containers') {
+        stage('Test') {
             steps {
-                sh 'docker-compose up -d'
-            }
-        }
-
-        stage('Health Check') {
-            steps {
-                sh 'sleep 10' // wait for containers
+                sh 'docker compose up -d'
+                sh 'sleep 10'
                 sh 'curl -f http://localhost || exit 1'
             }
         }
+
+        stage('Push Images') {
+            steps {
+                withCredentials([usernamePassword(
+                    credentialsId: 'dockerhub',
+                    usernameVariable: 'DOCKER_USER',
+                    passwordVariable: 'DOCKER_PASS'
+                )]) {
+
+                    sh '''
+                    echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
+
+                    docker push rohini1204/web-frontend
+                    docker push rohini1204/api-backend
+                    '''
+                }
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sh 'docker compose down'
+                sh 'docker compose pull'
+                sh 'docker compose up -d'
+            }
+        }
     }
+
     post {
         success {
-            echo 'Deployment successful!'
+            echo 'CI/CD Pipeline executed successfully!'
         }
+
         failure {
-            echo 'Deployment failed1'
+            sh 'docker compose logs'
+            echo 'Pipeline failed!'
         }
     }
 }  
