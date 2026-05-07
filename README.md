@@ -65,9 +65,9 @@ Build → Test → Push → Deploy
 
 ## 🚀 How to Run Locally
 
-git clone https://github.com/your-username/jenkins-docker-cicd-pipeline.git
-cd jenkins-docker-cicd-pipeline
-docker compose up -d
+- git clone https://github.com/RohiniJ1204/jenkins-docker-cicd-pipeline.git
+- cd jenkins-docker-cicd-pipeline
+- docker-compose up -d
 
 ---
 
@@ -76,14 +76,18 @@ docker compose up -d
 ### Jenkins Pipeline Overview
 ![Pipeline](screenshots/jenkins-pipeline-stage-view.png)
 
+
 ### Console Output
 ![Console](screenshots/jenkins-console-output.png)
+
 
 ### Docker Containers
 ![Containers](screenshots/docker-containers.png)
 
+
 ### Docker Hub Images
 ![DockerHub](screenshots/docker-hub.png)
+
 
 ### Application UI
 ![UI](screenshots/application-ui.png)
@@ -116,7 +120,7 @@ docker compose up -d
 ## 👨‍💻 Author
 
 **Rohini Javvaji**
-Aspiring DevOps Engineer
+- Aspiring DevOps Engineer
 - GitHub: https://github.com/RohiniJ1204
 
 
